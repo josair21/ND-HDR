@@ -44,7 +44,7 @@ def diagnose_image(image_path):
 
             cropped = image[y:h, x:w]  # Recorta a imagem
 
-            path_save_image = f'./models/save_images/{i}.jpg'
+            path_save_image = f'./save_images/{i}.jpg'
             # Salva a imagem cortada no diretorio
 
             cv2.imwrite(path_save_image, cropped)
