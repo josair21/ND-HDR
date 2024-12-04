@@ -14,11 +14,11 @@ import tensorflow as tf
 app = Flask(__name__)
 
 # Load a pretrained YOLO model_localize
-path_model_localize = "models/detect/best.pt"
+path_model_localize = "detect/best.pt"
 model_localize = YOLO(path_model_localize)
 
 # Model Classifier
-path_classifier = "models/classifier/model_PavicNet_BRACOL_V7.hdf5"
+path_classifier = "classifier/model_PavicNet_BRACOL_V7.hdf5"
 model_all_0 = load_model(path_classifier)
 
 
@@ -106,7 +106,7 @@ def process_image():
 
     file = request.files['image']
     
-    file_path = os.path.join('./models/save_images', file.filename)
+    file_path = os.path.join('./save_images', file.filename)
     file.save(file_path)
     try:
         image, deseases_list, count_list = diagnose_image(file_path)
